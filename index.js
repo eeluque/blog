@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require ("body-parser");
 const app = express();
+const dotenv = require('dotenv').config();
 app.set('views', './views')
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended:true}));
@@ -12,7 +13,9 @@ const homeStartingContent = "Welcome to our travel blog, your passport to advent
 const aboutContent = "Welcome to our travel blog! We believe that travel is not just about visiting new places; it's about immersing ourselves in diverse cultures, connecting with locals, and experiencing the world in all its richness. Founded by passionate travelers with a shared love for exploration, our blog is a labor of love aimed at inspiring and empowering fellow adventurers to embark on their own transformative journeys. Whether you're seeking adrenaline-pumping adventures, serene escapes, or cultural odysseys, our curated content offers practical advice, insider tips, and heartfelt stories to ignite your wanderlust and help you navigate the globe with confidence. Join our community of explorers as we embrace the unknown, foster meaningful connections, and create memories that will last a lifetime.";
 const contactContent = "Have a burning question, a suggestion for a destination, or just want to share your latest travel tale? We'd love to hear from you! Our team is here to assist you with any inquiries, feedback, or collaboration opportunities you may have. Whether you're seeking travel advice, interested in partnering with us, or simply want to say hello, feel free to reach out via the contact form below or drop us an email at [contact@email.com]. We're dedicated to providing timely and personalized responses to ensure that your travel experience with us is nothing short of exceptional. Let's connect and embark on this journey together!";
  
-const uri = "mongodb+srv://eduardoluque08:TVjoruWMAJlM9wPd@cluster0.1i5dwuk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const uri = process.env.MONGODB_URI;
+
+//console.log(process.env);
 
 mongoose.connect(uri).then(()=>{
   console.log("connected to the database!");
