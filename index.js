@@ -19,7 +19,7 @@ const uri = process.env.MONGODB_URI;
 
 mongoose.connect(uri).then(()=>{
   console.log("connected to the database!");
-  app.listen((process.env.PORT || 5000),() =>{
+  app.listen((process.env.PORT || 3000),() =>{
     console.log("Server is running");
   });
 })
