@@ -19,7 +19,7 @@ const uri = process.env.MONGODB_URI;
 
 mongoose.connect(uri).then(() => {
   console.log("connected to the database!");
-  app.listen((process.env.PORT || 3000), () => {
+  app.listen((process.env.PORT || 4000), () => {
     console.log("Server is running");
   });
 })
@@ -110,5 +110,7 @@ app.post("/compose", async function (req, res) {
   res.redirect("/")
 
 })
+
+module.exports = app;
 
 
